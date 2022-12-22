@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:ar_indoor_nav_admin/data/account/account.dart';
+import 'package:virtual_tour_guide_manager/data/account/account.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/categories/repository/categories_repository.dart';
+import 'package:virtual_tour_guide_manager/data/categories/repository/categories_repository.dart';
 import 'bloc.dart';
 
 class CategoriesBloc extends Bloc<CategoryEvent, CategoriesState> {

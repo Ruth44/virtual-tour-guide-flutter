@@ -1,15 +1,15 @@
-import 'package:ar_indoor_nav_admin/data/account/account.dart';
-import 'package:ar_indoor_nav_admin/data/bldg_detail/bloc/bldg_detail_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/building/bloc/bldg_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/building/model/building.dart';
-import 'package:ar_indoor_nav_admin/data/users/bloc/user_bloc.dart';
-import 'package:ar_indoor_nav_admin/screens/add_admin.dart';
-import 'package:ar_indoor_nav_admin/screens/building_detail.dart';
-import 'package:ar_indoor_nav_admin/screens/category_list.dart';
-import 'package:ar_indoor_nav_admin/screens/change_password.dart';
-import 'package:ar_indoor_nav_admin/screens/view_users.dart';
-import 'package:ar_indoor_nav_admin/util/building_argument.dart';
-import 'package:ar_indoor_nav_admin/util/user_argument.dart';
+import 'package:virtual_tour_guide_manager/data/account/account.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/bloc/bldg_detail_bloc.dart';
+import 'package:virtual_tour_guide_manager/data/building/bloc/bldg_bloc.dart';
+import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
+import 'package:virtual_tour_guide_manager/data/users/bloc/user_bloc.dart';
+import 'package:virtual_tour_guide_manager/screens/add_admin.dart';
+import 'package:virtual_tour_guide_manager/screens/building_detail.dart';
+import 'package:virtual_tour_guide_manager/screens/category_list.dart';
+import 'package:virtual_tour_guide_manager/screens/change_password.dart';
+import 'package:virtual_tour_guide_manager/screens/view_users.dart';
+import 'package:virtual_tour_guide_manager/util/building_argument.dart';
+import 'package:virtual_tour_guide_manager/util/user_argument.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,4 +1,4 @@
-import 'package:ar_indoor_nav_admin/util/validators/validators.dart';
+import 'package:virtual_tour_guide_manager/util/validators/validators.dart';
 import 'package:test/test.dart';
 
 void main() {

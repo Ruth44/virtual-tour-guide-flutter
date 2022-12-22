@@ -1,10 +1,10 @@
-import 'package:ar_indoor_nav_admin/data/bldg_detail/bloc/bldg_detail_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/bldg_detail/model/bldg_detail.dart';
-import 'package:ar_indoor_nav_admin/data/building/model/building.dart';
-import 'package:ar_indoor_nav_admin/data/building/repository/building_repository.dart';
-import 'package:ar_indoor_nav_admin/data/categories/models/categories.dart';
-import 'package:ar_indoor_nav_admin/data/room/models/room.dart';
-import 'package:ar_indoor_nav_admin/screens/building_detail.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/bloc/bldg_detail_bloc.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
+import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
+import 'package:virtual_tour_guide_manager/data/building/repository/building_repository.dart';
+import 'package:virtual_tour_guide_manager/data/categories/models/categories.dart';
+import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
+import 'package:virtual_tour_guide_manager/screens/building_detail.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

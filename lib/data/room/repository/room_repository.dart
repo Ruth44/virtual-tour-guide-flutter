@@ -1,5 +1,5 @@
-import 'package:ar_indoor_nav_admin/data/room/data_provider/room_data_provider.dart';
-import 'package:ar_indoor_nav_admin/data/room/models/room.dart';
+import 'package:virtual_tour_guide_manager/data/room/data_provider/room_data_provider.dart';
+import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
 
 class RoomRepository {
   final RoomDataProvider dataProvider;

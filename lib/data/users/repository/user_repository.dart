@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:ar_indoor_nav_admin/data/bldg_detail/model/bldg_detail.dart';
-import 'package:ar_indoor_nav_admin/data/users/data_provider/user_data_provider.dart';
-import 'package:ar_indoor_nav_admin/data/users/model/user.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
+import 'package:virtual_tour_guide_manager/data/users/data_provider/user_data_provider.dart';
+import 'package:virtual_tour_guide_manager/data/users/model/user.dart';
 
 class UserRepository {
   final UserDataProvider userDataProvider;

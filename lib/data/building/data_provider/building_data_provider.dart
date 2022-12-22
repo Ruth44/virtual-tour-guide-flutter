@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:ar_indoor_nav_admin/data/bldg_detail/model/bldg_detail.dart';
-import 'package:ar_indoor_nav_admin/data/building/model/building.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
+import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
 import 'package:http/http.dart' as http;
 
 class BuildingDataProvider {

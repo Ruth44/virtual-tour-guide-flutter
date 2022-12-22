@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:ar_indoor_nav_admin/data/categories/models/categories.dart';
+import 'package:virtual_tour_guide_manager/data/categories/models/categories.dart';
 
 class CategoriesDataProvider {
   // final _baseUrl = "https://ar-indoor-navigation.herokuapp.com";

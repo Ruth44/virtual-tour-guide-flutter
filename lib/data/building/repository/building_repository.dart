@@ -1,6 +1,6 @@
-import 'package:ar_indoor_nav_admin/data/bldg_detail/model/bldg_detail.dart';
-import 'package:ar_indoor_nav_admin/data/building/data_provider/building_data_provider.dart';
-import 'package:ar_indoor_nav_admin/data/building/model/building.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
+import 'package:virtual_tour_guide_manager/data/building/data_provider/building_data_provider.dart';
+import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
 
 class BuildingRepository {
   final BuildingDataProvider buildingDataProvider;

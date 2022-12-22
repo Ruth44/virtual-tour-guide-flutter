@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ar_indoor_nav_admin/data/categories/models/categories.dart';
+import 'package:virtual_tour_guide_manager/data/categories/models/categories.dart';
 
 abstract class CategoryEvent extends Equatable {
   const CategoryEvent();

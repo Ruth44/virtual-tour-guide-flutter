@@ -1,8 +1,8 @@
-import 'package:ar_indoor_nav_admin/data/bldg_detail/bloc/bldg_detail_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/categories/bloc/bloc.dart';
-import 'package:ar_indoor_nav_admin/data/room/bloc/room/room_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/room/models/room.dart';
-import 'package:ar_indoor_nav_admin/util/validators/validators.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/bloc/bldg_detail_bloc.dart';
+import 'package:virtual_tour_guide_manager/data/categories/bloc/bloc.dart';
+import 'package:virtual_tour_guide_manager/data/room/bloc/room/room_bloc.dart';
+import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
+import 'package:virtual_tour_guide_manager/util/validators/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

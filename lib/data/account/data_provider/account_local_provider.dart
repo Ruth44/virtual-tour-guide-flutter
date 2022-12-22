@@ -1,4 +1,4 @@
-import 'package:ar_indoor_nav_admin/util/storage/secure_storage.dart';
+import 'package:virtual_tour_guide_manager/util/storage/secure_storage.dart';
 
 class AccountLocalDataProvider {
   static const TOKEN_KEY = "JWT_TOKEN";

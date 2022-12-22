@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:ar_indoor_nav_admin/data/building/model/building.dart';
-import 'package:ar_indoor_nav_admin/data/categories/data_provider/category_data.dart';
-import 'package:ar_indoor_nav_admin/data/categories/models/categories.dart';
-import 'package:ar_indoor_nav_admin/data/room/models/room.dart';
+import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
+import 'package:virtual_tour_guide_manager/data/categories/data_provider/category_data.dart';
+import 'package:virtual_tour_guide_manager/data/categories/models/categories.dart';
+import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
 import 'package:http/http.dart' as http;
 
 class RoomDataProvider {

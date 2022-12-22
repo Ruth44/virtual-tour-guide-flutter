@@ -1,5 +1,5 @@
-import 'package:ar_indoor_nav_admin/data/account/data_provider/account_local_provider.dart';
-import 'package:ar_indoor_nav_admin/data/account/data_provider/account_remote_provider.dart';
+import 'package:virtual_tour_guide_manager/data/account/data_provider/account_local_provider.dart';
+import 'package:virtual_tour_guide_manager/data/account/data_provider/account_remote_provider.dart';
 
 class AccountRepository {
   final AccountRemoteDataProvider remoteDataProvider;

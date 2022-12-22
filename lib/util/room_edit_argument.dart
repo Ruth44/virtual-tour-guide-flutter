@@ -1,4 +1,4 @@
-import 'package:ar_indoor_nav_admin/data/room/models/room.dart';
+import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
 
 class RoomEditArgument {
   final Room room;

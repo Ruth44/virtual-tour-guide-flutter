@@ -1,5 +1,5 @@
-import 'package:ar_indoor_nav_admin/data/building/model/building.dart';
-import 'package:ar_indoor_nav_admin/data/building/repository/building_repository.dart';
+import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
+import 'package:virtual_tour_guide_manager/data/building/repository/building_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';

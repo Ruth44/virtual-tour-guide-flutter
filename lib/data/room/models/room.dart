@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ar_indoor_nav_admin/data/categories/models/categories.dart';
+import 'package:virtual_tour_guide_manager/data/categories/models/categories.dart';
 
 class Room {
   Room({

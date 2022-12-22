@@ -1,6 +1,6 @@
-import 'package:ar_indoor_nav_admin/data/account/bloc/bloc.dart';
-import 'package:ar_indoor_nav_admin/data/account/repository/account_repository.dart';
-import 'package:ar_indoor_nav_admin/data/building/model/building.dart';
+import 'package:virtual_tour_guide_manager/data/account/bloc/bloc.dart';
+import 'package:virtual_tour_guide_manager/data/account/repository/account_repository.dart';
+import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

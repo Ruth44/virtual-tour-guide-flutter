@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:ar_indoor_nav_admin/data/users/model/user.dart';
-import 'package:ar_indoor_nav_admin/data/users/model/user.dart';
+import 'package:virtual_tour_guide_manager/data/users/model/user.dart';
+import 'package:virtual_tour_guide_manager/data/users/model/user.dart';
 import 'package:http/http.dart' as http;
 
 class UserDataProvider {

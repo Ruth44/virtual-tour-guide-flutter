@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:ar_indoor_nav_admin/data/account/repository/account_repository.dart';
+import 'package:virtual_tour_guide_manager/data/account/repository/account_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;

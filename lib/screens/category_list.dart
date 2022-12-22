@@ -1,6 +1,6 @@
-import 'package:ar_indoor_nav_admin/screens/category.dart';
-import 'package:ar_indoor_nav_admin/screens/category_add.dart';
-import 'package:ar_indoor_nav_admin/util/category_argument.dart';
+import 'package:virtual_tour_guide_manager/screens/category.dart';
+import 'package:virtual_tour_guide_manager/screens/category_add.dart';
+import 'package:virtual_tour_guide_manager/util/category_argument.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesList extends StatelessWidget {

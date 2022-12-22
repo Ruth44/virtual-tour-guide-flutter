@@ -1,5 +1,5 @@
-import 'package:ar_indoor_nav_admin/data/account/bloc/change_password/bloc/bloc/change_password_bloc.dart';
-import 'package:ar_indoor_nav_admin/util/validators/validators.dart';
+import 'package:virtual_tour_guide_manager/data/account/bloc/change_password/bloc/bloc/change_password_bloc.dart';
+import 'package:virtual_tour_guide_manager/util/validators/validators.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 

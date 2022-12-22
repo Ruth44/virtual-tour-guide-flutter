@@ -1,12 +1,12 @@
-import 'package:ar_indoor_nav_admin/data/bldg_detail/bloc/bldg_detail_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/bldg_detail/model/bldg_detail.dart';
-import 'package:ar_indoor_nav_admin/data/building/bloc/bldg_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/categories/bloc/bloc.dart';
-import 'package:ar_indoor_nav_admin/data/room/models/room.dart';
-import 'package:ar_indoor_nav_admin/screens/category_list.dart';
-import 'package:ar_indoor_nav_admin/screens/room_edit.dart';
-import 'package:ar_indoor_nav_admin/util/category_argument.dart';
-import 'package:ar_indoor_nav_admin/util/room_edit_argument.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/bloc/bldg_detail_bloc.dart';
+import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
+import 'package:virtual_tour_guide_manager/data/building/bloc/bldg_bloc.dart';
+import 'package:virtual_tour_guide_manager/data/categories/bloc/bloc.dart';
+import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
+import 'package:virtual_tour_guide_manager/screens/category_list.dart';
+import 'package:virtual_tour_guide_manager/screens/room_edit.dart';
+import 'package:virtual_tour_guide_manager/util/category_argument.dart';
+import 'package:virtual_tour_guide_manager/util/room_edit_argument.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

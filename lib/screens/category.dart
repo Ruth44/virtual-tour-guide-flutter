@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ar_indoor_nav_admin/data/categories/bloc/bloc.dart';
+import 'package:virtual_tour_guide_manager/data/categories/bloc/bloc.dart';
 
 class Category extends StatelessWidget {
   final String bldgId;

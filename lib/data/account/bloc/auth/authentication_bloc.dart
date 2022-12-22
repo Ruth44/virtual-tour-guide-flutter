@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:ar_indoor_nav_admin/data/account/repository/account_repository.dart';
+import 'package:virtual_tour_guide_manager/data/account/repository/account_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:bloc/bloc.dart';
 part 'authentication_event.dart';
