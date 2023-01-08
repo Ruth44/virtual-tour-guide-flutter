@@ -11,6 +11,7 @@ abstract class RoomState extends Equatable {
 class RoomInitialState extends RoomState {}
 
 class RoomDetailLoading extends RoomState {}
+class RoomCreateSuccess extends RoomState {}
 
 class RoomDetailLoaded extends RoomState {
   final Room room;

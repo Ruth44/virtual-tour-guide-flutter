@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
 import 'package:virtual_tour_guide_manager/data/building/data_provider/building_data_provider.dart';
 import 'package:virtual_tour_guide_manager/data/building/model/building.dart';
@@ -14,6 +16,11 @@ class BuildingRepository {
   }
 
   Future<BldgDetail> getBuildingDetails(String bldgId) async {
+    // final x = await buildingDataProvider.getBuildingDetails(bldgId);
+
+
+   
+    // print(await buildingDataProvider.getBuildingDetails(bldgId));
     return await buildingDataProvider.getBuildingDetails(bldgId);
   }
 }

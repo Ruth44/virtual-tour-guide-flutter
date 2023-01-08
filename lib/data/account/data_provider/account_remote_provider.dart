@@ -57,14 +57,19 @@ class AccountRemoteDataProvider {
       var jsonResponse = jsonDecode(response.body);
       print('Response Status : ${response.statusCode}');
       print('Response body: ${response.body}');
+          print(jsonResponse);
       sharedPreferences.setBool('isAdmin', jsonResponse['mainManager']);
-
+      // sharedPreferences.setString('bldgId', jsonResponse['buildingId']);
+  
       if (jsonResponse != null) {
+        print('message');
         return jsonResponse['token'];
       } else {
+        print('message2');
         throw Exception("failed to get token from response"); // todo -> check
       }
     } else {
+      print('message3');
       throw Exception("failed to signin admin user");
     }
   }

@@ -28,7 +28,6 @@ class _UserEditState extends State<UserEdit> {
     super.initState();
     _email = widget.user.email;
     _userName = widget.user.name;
-
   }
 
   @override
@@ -36,6 +35,9 @@ class _UserEditState extends State<UserEdit> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF1A1820),
+        ),
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xFF1A1820),
         body: SafeArea(
@@ -47,7 +49,6 @@ class _UserEditState extends State<UserEdit> {
                 if (state is UserDetailLoaded) {
                   print("state is UserDetailloaded " + state.toString());
 
-                 
                   Navigator.pop(context, state.user);
                 } else if (state is ErrorUserDetail) {
                   print("error state " + state.message.toString());
@@ -65,7 +66,6 @@ class _UserEditState extends State<UserEdit> {
                       fontSize: 36,
                     ),
                   ),
-             
                   const SizedBox(height: 36),
                   Expanded(
                     flex: 2,
@@ -150,7 +150,7 @@ class _UserEditState extends State<UserEdit> {
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                      enabled:  true ,
+                                      enabled: true,
                                       decoration: const InputDecoration(
                                         border: InputBorder.none,
                                       ),
@@ -179,7 +179,7 @@ class _UserEditState extends State<UserEdit> {
                                     ),
                                   ),
                                   const SizedBox(height: 8),
-                                 Container(
+                                  Container(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 20),
                                     decoration: BoxDecoration(
@@ -194,7 +194,7 @@ class _UserEditState extends State<UserEdit> {
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                      enabled:  true ,
+                                      enabled: true,
                                       decoration: const InputDecoration(
                                         border: InputBorder.none,
                                       ),
@@ -208,7 +208,6 @@ class _UserEditState extends State<UserEdit> {
                                     ),
                                   ),
                                   const SizedBox(height: 14),
-                                  
                                 ]),
                           ),
                           const SizedBox(height: 40),
@@ -228,11 +227,11 @@ class _UserEditState extends State<UserEdit> {
                                   // print("save changes clicked and valid ");
                                   BlocProvider.of<UserBloc>(context).add(
                                     UpdateUserDetailEvent(
-                                      userId: widget.user.id,
-                                      userName: _userName,
-                                     email: _email
-                                    ),
+                                        userId: widget.user.id,
+                                        userName: _userName,
+                                        email: _email),
                                   );
+                                  Navigator.pop(context);
                                 }
                               },
                               child: BlocBuilder<UserBloc, UserState>(

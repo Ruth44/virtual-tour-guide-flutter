@@ -12,6 +12,7 @@ class CategoriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(backgroundColor: const Color(0xFF1A1820),),
       backgroundColor: const Color(0xFF1A1820),
       // appBar: AppBar(
       //   backgroundColor: const Color(0xFF1A1820),

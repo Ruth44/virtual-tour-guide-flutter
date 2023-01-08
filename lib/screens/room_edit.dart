@@ -31,7 +31,7 @@ class _RoomEditState extends State<RoomEdit> {
     _roomName = widget.room.roomName;
     _roomCategory = widget.room.category.name;
     _isOccupied = !widget.room.isEmpty;
-    _bldgId = widget.room.bldgId;
+    _bldgId = widget.room.building;
     _categoryOptions = [_roomCategory];
   }
 
@@ -40,6 +40,9 @@ class _RoomEditState extends State<RoomEdit> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF1A1820),
+        ),
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xFF1A1820),
         body: SafeArea(
@@ -354,7 +357,7 @@ class _RoomEditState extends State<RoomEdit> {
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
-
+                                  print(_roomCategory);
                                   // print("save changes clicked and valid ");
                                   BlocProvider.of<RoomBloc>(context).add(
                                     UpdateRoomDetailEvent(

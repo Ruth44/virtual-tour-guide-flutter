@@ -2,8 +2,11 @@
 //
 //     final bldgDetail = bldgDetailFromMap(jsonString);
 
+// import 'package:json_annotation/json_annotation.dart';
 import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
+// part 'bldg_detail.g.dart';
 
+// @JsonSerializable(explicitToJson: true)
 class BldgDetail {
   BldgDetail({
     required this.id,
@@ -37,4 +40,19 @@ class BldgDetail {
         "name": name,
         "rooms": List<dynamic>.from(rooms.map((x) => x.toMap())),
       };
+
+  // factory BldgDetail.fromMap(Map<String, dynamic> json) => BldgDetail(
+  //       id: json["_id"],
+  //       name: json["name"],
+  //       rooms: List<Room>.from(json["rooms"].map((x) => Room.fromMap(x))),
+  //     );
+  // factory BldgDetail.fromJson(Map<String, dynamic> json) =>
+  //     _$BldgDetailFromJson(json);
+
+  // Map<String, dynamic> toJson() => _$BldgDetailToJson(this);
+  // Map<String, dynamic> toMap() => {
+  //       "_id": id,
+  //       "name": name,
+  //       "rooms": List<dynamic>.from(rooms.map((x) => x.toMap())),
+  //     };
 }

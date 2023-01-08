@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 import 'package:virtual_tour_guide_manager/data/users/model/user.dart';
 import 'package:virtual_tour_guide_manager/data/users/model/user.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +22,6 @@ class UserDataProvider {
         'Content-Type': 'application/json; charset=UTF-8',
       },
     );
-    log(response.body);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final users = data as List;
@@ -69,6 +69,49 @@ class UserDataProvider {
       return userResult;
     }
     throw Exception('Failed to update user.');
+  }
+
+  Future<User> createUser(
+      String password, String bldgId, User usr, String token) async {
+    final response = await httpClient.post(
+      // Uri.parse('$_baseUrl/categories'),
+      Uri.parse('$_baseURL/users'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: "Bearer $token",
+      },
+      body: jsonEncode(<String, dynamic>{
+        'name': usr.name,
+        'email': usr.email,
+        'password': password,
+        'buildingId': bldgId
+      }),
+    );
+    print(response.body);
+    if (response.statusCode == 200) {
+      return User.fromJson(jsonDecode(response.body)["data"]);
+    } else {
+      throw Exception('Failed to create user.');
+    }
+  }
+
+  Future<void> deleteUser(String id, String token) async {
+    final http.Response response = await httpClient.delete(
+      Uri.parse('$_baseURL/users/$id'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: "Bearer $token",
+      },
+    );
+    log(response.body);
+    if (response.statusCode != 200) {
+      if (response.statusCode == 409 || response.statusCode == 403) {
+        // throw Exception('User selected being used');
+        throw Exception('${jsonDecode(response.body)["message"].toString()}');
+      } else {
+        throw Exception('Failed to delete user.');
+      }
+    }
   }
   // Future<BldgDetail> getUserDetails(String usrId) async {
   //   final response = await httpClient.get(

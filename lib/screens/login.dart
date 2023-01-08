@@ -18,6 +18,7 @@ class LoginPage extends StatelessWidget {
       print("final email " + _email + " final password " + _password);
       BlocProvider.of<LoginBloc>(context)
           .add(LoginEvent(email: _email, password: _password));
+    
     }
   }
 
@@ -38,7 +39,7 @@ class LoginPage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: const Color(0x1A1820FF),
+        backgroundColor: const Color(0xFFFFFFFF),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(32.0),
@@ -60,7 +61,8 @@ class LoginPage extends StatelessWidget {
                   "Welcome",
                   style: Theme.of(context).textTheme.headline1?.copyWith(
                         fontSize: 36,
-                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF41415F),
                       ),
                 ),
               ),
@@ -80,7 +82,7 @@ class LoginPage extends StatelessWidget {
                                 Theme.of(context).textTheme.headline2?.copyWith(
                                       // fontSize: screenHeight * 0.021,
                                       fontSize: 14,
-                                      color: Colors.white,
+                                      color: const Color(0xFF41415F),
                                       fontFamily: 'Poppins Medium',
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -91,13 +93,19 @@ class LoginPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
-                          color: const Color(0x1AC4C4C4),
+                          color: const Color(0xFFffffff),
+                          border: Border.all(
+                            color: const Color(0xFF41415F),
+                            width: 2,
+                          ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: TextFormField(
                           key: const Key("emailField"),
                           initialValue: '',
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: const Color(0xFF41415F),
+                          ),
                           decoration: const InputDecoration(
                             // hintStyle: TextStyle(color: Colors.white),
                             // hintText: 'Email Address',
@@ -120,7 +128,7 @@ class LoginPage extends StatelessWidget {
                             "Password",
                             style: TextStyle(
                               fontSize: 14,
-                              color: Colors.white,
+                              color: const Color(0xFF41415F),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -130,14 +138,19 @@ class LoginPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
-                          color: const Color(0x1AC4C4C4),
+                          color: const Color(0xFFffffff),
+                          border: Border.all(
+                            color: const Color(0xFF41415F),
+                            width: 2,
+                          ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: TextFormField(
-                          
                           key: const Key("passwordField"),
                           initialValue: '',
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: const Color(0xFF41415F),
+                          ),
                           decoration: const InputDecoration(
                             // hintText: 'Password',
                             border: InputBorder.none,

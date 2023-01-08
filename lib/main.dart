@@ -88,10 +88,10 @@ class MyApp extends StatelessWidget {
               BldgDetailBloc(buildingRepository: buildingRepository),
         ),
         BlocProvider(
-          create: (context) => UserBloc(userRepository: userRepository),
+          create: (context) => UserBloc(userRepository: userRepository, accountRepository: accountRepository),
         ),
         BlocProvider(
-          create: (context) => RoomBloc(roomRepository: roomRepository),
+          create: (context) => RoomBloc(roomRepository: roomRepository, accountRepository: accountRepository),
         ),
         BlocProvider(
             create: (context) => CategoriesBloc(

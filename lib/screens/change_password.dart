@@ -47,9 +47,11 @@ class ChangePassword extends StatelessWidget {
         }
       },
       child: Scaffold(
+        appBar: AppBar( backgroundColor: const Color(0xFF1A1820),),
         // backgroundColor: const Color(0x1A1820FF),
         backgroundColor: const Color(0xFF1A1820),
         body: SafeArea(
+          
           child: Padding(
             padding: const EdgeInsets.all(32.0),
             child: ListView(children: [

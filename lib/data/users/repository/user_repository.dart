@@ -28,6 +28,14 @@ class UserRepository {
       updatedEmail: email,
     );
   }
+   Future<void> deleteUser(String id,  String token) async {
+    await userDataProvider.deleteUser(id, token);
+  }
+
+  Future<User> createUser(
+      User user, String bldgId, String password,String token) async {
+    return await userDataProvider.createUser( password,bldgId, user, token);
+  }
   // Future<UserDetail> getUserDetails(String userId) async {
   //   return await userDataProvider.getUserDetails(userId);
   // }

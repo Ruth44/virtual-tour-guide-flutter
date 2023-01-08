@@ -20,7 +20,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   ) async* {
     try {
       yield LoggingInState();
+      print('logging in state');
       await accountRepository.login(event.email, event.password);
+      print('logged in state');
       yield LoggedInState();
     } on SocketException catch (e) {
       print(e);

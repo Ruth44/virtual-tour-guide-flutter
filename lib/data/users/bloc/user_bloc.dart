@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:virtual_tour_guide_manager/data/account/repository/account_repository.dart';
+import 'package:virtual_tour_guide_manager/data/categories/bloc/bloc.dart';
 import 'package:virtual_tour_guide_manager/data/users/model/user.dart';
 import 'package:virtual_tour_guide_manager/data/users/repository/user_repository.dart';
 import 'package:bloc/bloc.dart';
@@ -9,8 +13,9 @@ part 'user_state.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   final UserRepository userRepository;
+  final AccountRepository accountRepository;
 
-  UserBloc({required this.userRepository}) : super(InitialUserState());
+  UserBloc({required this.userRepository, required this.accountRepository}) : super(InitialUserState());
 
   @override
   Stream<UserState> mapEventToState(
@@ -50,6 +55,39 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         print(e);
         yield ErrorUserDetail(
             message: "error while updating user details for ${event.userId}");
+      }
+    }else if (event is UserDelete) {
+      try {
+       
+        String? token =
+            await accountRepository.localDataProvider.readJWTToken();
+        await userRepository.deleteUser(
+            event.user.id, token!);
+    
+        yield UserDetailLoaded(user: event.user);
+      } on SocketException catch (e) {
+        yield const UsersOperationError(message: "Connection issues");
+      } on Exception catch (e) {
+        // yield const UsersOperationError(
+        //     message: "User selected being used");
+        yield UsersOperationError(
+            message: "${e.toString().substring(11)}");
+        // yield const UsersOperationError(
+        //     message: "failed to delete user!");
+      } 
+    }else if (event is UserCreate) {
+      try {
+        yield UserDetailLoading();
+        String? token =
+            await accountRepository.localDataProvider.readJWTToken();
+        await userRepository.createUser(
+            event.user, event.bldgId,event.password, token!);
+        final usersList =
+            await userRepository.getAllUsers();
+        yield UserDetailLoaded(user: event.user);
+      } catch (_) {
+        yield const UsersOperationError(
+            message: "failed to create user!");
       }
     }
   }

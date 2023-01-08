@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
 import 'package:bloc/bloc.dart';
 import 'package:virtual_tour_guide_manager/data/building/repository/building_repository.dart';
@@ -22,10 +24,11 @@ class BldgDetailBloc extends Bloc<BldgDetailEvent, BldgDetailState> {
         yield BldgDetailLoadingState();
         final BldgDetail bldgDetailResult =
             await buildingRepository.getBuildingDetails(event.id);
+        // log(bldgDetailResult.name);
 
         yield BldgDetailsLoadedState(bldgDetailResult);
       } catch (e) {
-        print(e);
+        // print(e);
         yield const ErrorBldgDetailState(
             "error while getting specific building detail");
       }

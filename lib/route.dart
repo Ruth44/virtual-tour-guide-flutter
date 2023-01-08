@@ -1,5 +1,6 @@
 import 'package:virtual_tour_guide_manager/screens/admin_home.dart';
 import 'package:virtual_tour_guide_manager/screens/change_password.dart';
+import 'package:virtual_tour_guide_manager/screens/destination_add.dart';
 import 'package:virtual_tour_guide_manager/screens/user_edit.dart';
 import 'package:virtual_tour_guide_manager/screens/view_users.dart';
 import 'package:virtual_tour_guide_manager/util/building_argument.dart';
@@ -94,6 +95,11 @@ class PageRouter {
         final args = settings.arguments as UserArgument;
         return MaterialPageRoute(builder: (context) {
           return ViewUsers(bldgId: args.bldgId);
+        });
+        case AddDestination.routeName:
+        final args = settings.arguments as UserArgument;
+        return MaterialPageRoute(builder: (context) {
+          return AddDestination(bldgId: args.bldgId);
         });
       case AddCategory.routeName:
         final args = settings.arguments as CategoryArgument;

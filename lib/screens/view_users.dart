@@ -27,6 +27,9 @@ class ViewUsers extends StatelessWidget {
         return true;
       },
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF1A1820),
+        ),
         backgroundColor: const Color(0xFF1A1820),
         body: SafeArea(
           child: RefreshIndicator(
@@ -45,46 +48,7 @@ class ViewUsers extends StatelessWidget {
                     children: [
                       // const SizedBox(height: 80),
                       const SizedBox(height: 40),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            key: Key('manageCategoriesButton'),
-                            onPressed: () {
-                              // BlocProvider.of<CategoriesBloc>(context)
-                              //     .add(CategoriesLoad(
-                              //   bldgId: bldgId,
-                              // ));
-                              // Navigator.of(context).pushNamed(
-                              //   CategoriesList.routeName,
-                              //   arguments: CategoryArgument(bldgId: bldgId),
-                              // );
-                            },
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 8),
-                              child: Text(
-                                'Manage Categories',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ),
-                            // textColor: Colors.white,
-                            style: TextButton.styleFrom(
-                              primary: const Color(0xFFF9C35C),
-                              shape: RoundedRectangleBorder(
-                                  side: const BorderSide(
-                                      color: Color(0xFFF9C35C),
-                                      width: 1,
-                                      style: BorderStyle.solid),
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
+
                       const Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 8),
@@ -189,38 +153,46 @@ class _RoomRowState extends State<RoomRow> {
           ),
         ),
         subtitle: Text(
-          "Email: ${widget.room.email}",
+          "Emaill: ${widget.room.email}",
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w700,
             fontSize: 12,
           ),
         ),
-        trailing: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: widget.mainManager
-                ? const Color(0x408A77FF)
-                : const Color(0x40F9C35C),
-          ),
-          child: Text(
-            widget.mainManager ? "Manager" : "Admin",
-            style: TextStyle(
-                color: widget.mainManager
-                    ? const Color(0xFFB4ADFF)
-                    : const Color(0xFFF9C35C)),
-          ),
-          onPressed: () {
-            setState(() {
-              //TODO: implement or make ElevatedButton Text widget
-            });
-          },
-        ),
+        trailing: IconButton(
+            icon: const Icon(
+              Icons.cancel_outlined,
+              color: Colors.red,
+            ),
+            onPressed: () {
+              context.read<UserBloc>().add(UserDelete(widget.room));
+            }),
+        // trailing: ElevatedButton(
+        //   style: ElevatedButton.styleFrom(
+        //     primary: widget.mainManager
+        //         ? const Color(0x408A77FF)
+        //         : const Color(0x40F9C35C),
+        //   ),
+        //   child: Text(
+        //     widget.mainManager ? "Manager" : "Admin",
+        //     style: TextStyle(
+        //         color: widget.mainManager
+        //             ? const Color(0xFFB4ADFF)
+        //             : const Color(0xFFF9C35C)),
+        //   ),
+        //   onPressed: () {
+        //     setState(() {
+        //       //TODO: implement or make ElevatedButton Text widget
+        //     });
+        //   },
+        // ),
         onLongPress: () {},
         onTap: () async {
           // BlocProvider.of<CategoriesBloc>(context).add(CategoriesLoad(
           //   bldgId: widget.room.bldgId,
           // ));
-          final updatedRoom = await Navigator.of(context).pushNamed(
+          await Navigator.of(context).pushNamed(
             UserEdit.routeName,
             arguments: UserEditArgument(user: widget.room),
           );

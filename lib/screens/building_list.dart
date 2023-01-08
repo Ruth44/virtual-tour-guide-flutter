@@ -29,12 +29,12 @@ class _BuildingListState extends State<BuildingList> {
           ChangePassword.routeName,
         );
         break;
-      case 'Add Admin':
-        Navigator.of(context).pushNamed(
-          AddAdminPage.routeName,
-        );
+      // case 'Add Admin':
+      //   Navigator.of(context).pushNamed(
+      //     AddAdminPage.routeName,
+      //   );
 
-        break;
+      //   break;
       case 'Logout':
         BlocProvider.of<AuthenticationBloc>(context)
             .add(AuthenticationEvent.unAuthenticate);
@@ -44,7 +44,13 @@ class _BuildingListState extends State<BuildingList> {
 
   @override
   Widget build(BuildContext context) {
-   
+    // BlocProvider.of<BldgDetailBloc>(context)
+    //     .add(GetBuildingDetails(id: '63a20a507254aaf43d718035'));
+
+    // Navigator.of(context).pushNamed(
+    //   BuildingDetail.routeName,
+    //   arguments: BuildingArgument(bldgId: '63a20a507254aaf43d718035'),
+    // );
     // final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -60,8 +66,7 @@ class _BuildingListState extends State<BuildingList> {
             //     borderRadius: BorderRadius.circular(5)),
             onSelected: _handleClick,
             itemBuilder: (BuildContext context) {
-              return {'Change password', 'Add Admin', 'Logout'}
-                  .map((String choice) {
+              return {'Change password', 'Logout'}.map((String choice) {
                 return PopupMenuItem<String>(
                   value: choice,
                   child: Text(choice),
@@ -109,7 +114,7 @@ class _BuildingListState extends State<BuildingList> {
                               padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
                               child: SizedBox(
                                 height: 30,
-                                // width: 30,
+                                width: 30,
                                 child: CircularProgressIndicator(
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                     Colors.white,

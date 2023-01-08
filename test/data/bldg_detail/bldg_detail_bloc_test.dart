@@ -25,9 +25,13 @@ void main() {
         roomName: 'Mahi bridal shop',
         roomNumber: "201",
         floorNumber: "2",
-        bldgId: '6228f21c57a385827dc34af3',
+        x:88,
+        y:6,
+        z:8,
+        building: '6228f21c57a385827dc34af3',
         isEmpty: false,
         createdAt: DateTime.parse('2022-06-19T12:59:02.025Z'),
+        // category: '6'
         category: const Category(
           id: "6266b0cf23bd56a00765e51c",
           name: "Bridal shops",
@@ -38,9 +42,13 @@ void main() {
         roomName: 'Miracle design',
         roomNumber: "202",
         floorNumber: "2",
-        bldgId: '6228f21c57a385827dc34af3',
+         x:88,
+        y:6,
+        z:8,
+        building: '6228f21c57a385827dc34af3',
         isEmpty: false,
         createdAt: DateTime.parse('2022-04-25T14:34:59.622Z'),
+        // category: 'yy'
         category: const Category(
           id: "627d7ab024c5aeee566fae61",
           name: "Habesha Clothing stores",

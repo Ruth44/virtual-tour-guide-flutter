@@ -1,14 +1,19 @@
+import 'dart:developer';
+
 import 'package:virtual_tour_guide_manager/data/bldg_detail/bloc/bldg_detail_bloc.dart';
 import 'package:virtual_tour_guide_manager/data/bldg_detail/model/bldg_detail.dart';
 import 'package:virtual_tour_guide_manager/data/building/bloc/bldg_bloc.dart';
 import 'package:virtual_tour_guide_manager/data/categories/bloc/bloc.dart';
+import 'package:virtual_tour_guide_manager/data/room/bloc/room/room_bloc.dart';
 import 'package:virtual_tour_guide_manager/data/room/models/room.dart';
 import 'package:virtual_tour_guide_manager/screens/category_list.dart';
+import 'package:virtual_tour_guide_manager/screens/destination_add.dart';
 import 'package:virtual_tour_guide_manager/screens/room_edit.dart';
 import 'package:virtual_tour_guide_manager/util/category_argument.dart';
 import 'package:virtual_tour_guide_manager/util/room_edit_argument.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:virtual_tour_guide_manager/util/user_argument.dart';
 
 class BuildingDetail extends StatelessWidget {
   static const routeName = "/buildingDetail";
@@ -23,6 +28,9 @@ class BuildingDetail extends StatelessWidget {
         return true;
       },
       child: Scaffold(
+        // appBar: AppBar(
+        //   backgroundColor: const Color(0xFF1A1820),
+        // ),
         backgroundColor: const Color(0xFF1A1820),
         body: SafeArea(
           child: RefreshIndicator(
@@ -80,7 +88,49 @@ class BuildingDetail extends StatelessWidget {
                           ),
                         ],
                       ),
+
                       const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            key: Key('addRoomButton'),
+                            onPressed: () {
+                              // BlocProvider.of<CategoriesBloc>(context)
+                              //     .add(CategoriesLoad(
+                              //   bldgId: bldgId,
+                              // ));
+                              Navigator.of(context).pushNamed(
+                                AddDestination.routeName,
+                                arguments: UserArgument(bldgId: bldgId),
+                              );
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 8),
+                              child: Text(
+                                'Add Destination',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                            // textColor: Colors.white,
+                            style: TextButton.styleFrom(
+                              primary: const Color(0xFFF9C35C),
+                              shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      color: Color(0xFFF9C35C),
+                                      width: 1,
+                                      style: BorderStyle.solid),
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+
                       const Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 8),
@@ -96,6 +146,7 @@ class BuildingDetail extends StatelessWidget {
                       BlocBuilder<BldgDetailBloc, BldgDetailState>(
                         builder: (context, state) {
                           if (state is BldgDetailsLoadedState) {
+                            log(state.fetchedBldgDetails.name);
                             final BldgDetail allBldgDetails =
                                 state.fetchedBldgDetails;
                             final List<Room> rooms = allBldgDetails.rooms;
@@ -114,6 +165,7 @@ class BuildingDetail extends StatelessWidget {
                                   }),
                             );
                           } else if (state is ErrorBldgDetailState) {
+                            // log(state.message);
                             return const Text(
                               "error loading details. Swipe to refresh.",
                               style: TextStyle(color: Colors.white),
@@ -124,7 +176,7 @@ class BuildingDetail extends StatelessWidget {
                                 padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
                                 child: SizedBox(
                                   height: 30,
-                                  // width: 30,
+                                  width: 30,
                                   child: CircularProgressIndicator(
                                     valueColor: AlwaysStoppedAnimation<Color>(
                                       Colors.white,
@@ -170,14 +222,15 @@ class _RoomRowState extends State<RoomRow> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.room);
     return Container(
-      height: 64,
-      margin: const EdgeInsets.symmetric(vertical: 14),
+      height: 90,
+      margin: const EdgeInsets.symmetric(vertical: 8),
       color: const Color(0x1AC4C4C4),
       // height: 76,
       child: ListTile(
         title: Text(
-          "Room name ${widget.room.roomName}",
+          " ${widget.room.roomName}",
           style: const TextStyle(
             color: Colors.white,
             // fontWeight: FontWeight.w700,
@@ -185,36 +238,62 @@ class _RoomRowState extends State<RoomRow> {
           ),
         ),
         subtitle: Text(
-          "Room #${widget.room.roomNumber}",
+          "#${widget.room.roomNumber}",
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w700,
             fontSize: 18,
           ),
         ),
-        trailing: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: widget.isOccupied
-                ? const Color(0x408A77FF)
-                : const Color(0x40F9C35C),
-          ),
-          child: Text(
-            widget.isOccupied ? "occupied" : "unoccupied",
-            style: TextStyle(
-                color: widget.isOccupied
-                    ? const Color(0xFFB4ADFF)
-                    : const Color(0xFFF9C35C)),
-          ),
-          onPressed: () {
-            setState(() {
-              //TODO: implement or make ElevatedButton Text widget
-            });
-          },
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          
+          children: [
+           Container(
+            height: 25,
+            padding: const EdgeInsets.only(bottom: 9),
+             child: IconButton(
+              
+              iconSize: 16,
+              icon: const Icon(
+                Icons.cancel_outlined,
+                color: Colors.red,
+                
+              ),
+              onPressed: () {
+                context.read<RoomBloc>().add(RoomDelete(widget.room));
+              }),
+           ),
+            Container(
+              height: 30,
+              child: ElevatedButton(
+                
+                style: ElevatedButton.styleFrom(
+                  
+                  primary: widget.isOccupied
+                      ? const Color(0x408A77FF)
+                      : const Color(0x40F9C35C),
+                ),
+                child: Text(
+                  widget.isOccupied ? "occupied" : "unoccupied",
+                  style: TextStyle(
+                      color: widget.isOccupied
+                          ? const Color(0xFFB4ADFF)
+                          : const Color(0xFFF9C35C)),
+                ),
+                onPressed: () {
+                  setState(() {
+                    //TODO: implement or make ElevatedButton Text widget
+                  });
+                },
+              ),
+            ),
+          ],
         ),
         onLongPress: () {},
         onTap: () async {
           BlocProvider.of<CategoriesBloc>(context).add(CategoriesLoad(
-            bldgId: widget.room.bldgId,
+            bldgId: widget.room.building,
           ));
           final updatedRoom = await Navigator.of(context).pushNamed(
             RoomEdit.routeName,

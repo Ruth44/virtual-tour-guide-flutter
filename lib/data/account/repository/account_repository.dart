@@ -10,16 +10,22 @@ class AccountRepository {
     required this.localDataProvider,
   });
 
-  Future<void> signUpAdmin(String name, String email, String password, String buildingId) async {
+  Future<void> signUpAdmin(
+      String name, String email, String password, String buildingId) async {
     String? token = await localDataProvider.readJWTToken();
     await remoteDataProvider.signUpAdmin(
-        name: name, email: email, password: password, buildingId: buildingId, token: token!);
+        name: name,
+        email: email,
+        password: password,
+        buildingId: buildingId,
+        token: token!);
 
     // return _saveToken(token); // since only registering new admin not signing in with the account
   }
 
   Future<void> login(String email, String password) async {
     String token = await remoteDataProvider.login(email, password);
+    print('token');
     return _saveToken(token);
   }
 

@@ -35,3 +35,11 @@ class ErrorUserDetail extends UserState {
   final String? message;
   const ErrorUserDetail({required this.message});
 }
+class UsersOperationError extends UserState {
+  final String message;
+
+  const UsersOperationError({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}

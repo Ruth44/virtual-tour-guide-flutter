@@ -33,3 +33,29 @@ class UpdateUserDetailEvent extends UserEvent {
     required this.email,
   });
 }
+
+class UserCreate extends UserEvent {
+  final String bldgId;
+    final String password;
+  final User user;
+
+  const UserCreate(this.user, this.bldgId, this.password);
+
+  @override
+  List<Object> get props => [user, bldgId, password];
+
+  @override
+  String toString() =>
+      'Category Created {user: $user}, bldgId: $bldgId';
+}
+class UserDelete extends UserEvent {
+  final User user;
+
+  const UserDelete(this.user);
+
+  @override
+  List<Object> get props => [user];
+
+  @override
+  toString() => 'User Deleted {user: $user}';
+}
